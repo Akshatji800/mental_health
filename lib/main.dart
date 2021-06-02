@@ -1,4 +1,9 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+
+import 'navigation/navigate.dart';
+import 'utils/constants.dart';
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
@@ -19,12 +24,4 @@ class MyApp extends StatelessWidget {
       ),
     );
   }
-}
-
-class Navigate {
-  static Map<String, Widget Function(BuildContext)> routes =   {
-    '/' : (context) => WelcomePage(),
-    '/sign-in' : (context) => SignInPage(),
-    '/home'  : (context) => HomePage()
-  };
 }

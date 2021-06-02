@@ -1,3 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:mental_health/utils/constants.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+
 class WelcomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -9,13 +14,6 @@ class WelcomePage extends StatelessWidget {
           value: Constants.statusBarColor,
           child: Center(
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Image.asset("assets/images/main-img.png"),
-                static const statusBarColor = SystemUiOverlayStyle(
-                    statusBarColor: Constants.kPrimaryColor,
-                    statusBarIconBrightness: Brightness.dark);
-                child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Image.asset("assets/images/main-img.png"),
@@ -85,3 +83,7 @@ class WelcomePage extends StatelessWidget {
                 )
               ],
             ),
+          ),
+        ));
+  }
+}
