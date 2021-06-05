@@ -13,7 +13,7 @@ class SignInPage extends StatelessWidget {
         borderSide: BorderSide(color: Constants.kBorderColor, width: 3.0));
     return Scaffold(
         resizeToAvoidBottomInset: false,
-        backgroundColor: Constants.kPrimaryColor,
+        backgroundColor: Colors.cyan[200],
         body: Center(
             child:
                 Column(mainAxisAlignment: MainAxisAlignment.center, children: [
@@ -32,17 +32,17 @@ class SignInPage extends StatelessWidget {
           SizedBox(height: size.height * 0.01),
           Text(
             Constants.textSmallSignIn,
-            style: TextStyle(color: Constants.kDarkGreyColor),
+            style: TextStyle(color: Constants.kBlackColor),
           ),
-          GoogleSignIn(),
-          buildRowDivider(size: size),
           Padding(padding: EdgeInsets.only(bottom: size.height * 0.02)),
           SizedBox(
             width: size.width * 0.8,
             child: TextField(
+                cursorColor: Colors.black,
                 decoration: InputDecoration(
+                    hintText: "Enter your mail ID",
                     contentPadding:
-                        EdgeInsets.symmetric(vertical: 15.0, horizontal: 10.0),
+                    EdgeInsets.symmetric(vertical: 15.0, horizontal: 10.0),
                     enabledBorder: border,
                     focusedBorder: border)),
           ),
@@ -52,22 +52,25 @@ class SignInPage extends StatelessWidget {
           SizedBox(
             width: size.width * 0.8,
             child: TextField(
+              cursorColor: Colors.black,
               decoration: InputDecoration(
+                hintText: "Enter your password",
                 contentPadding:
-                    EdgeInsets.symmetric(vertical: 15.0, horizontal: 10.0),
+                EdgeInsets.symmetric(vertical: 15.0, horizontal: 10.0),
                 enabledBorder: border,
                 focusedBorder: border,
                 suffixIcon: Padding(
                   child: FaIcon(
                     FontAwesomeIcons.eye,
                     size: 15,
+                    color: Colors.black,
                   ),
                   padding: EdgeInsets.only(top: 15, left: 15),
                 ),
               ),
             ),
           ),
-          Padding(padding: EdgeInsets.only(bottom: size.height * 0.05)),
+          Padding(padding: EdgeInsets.only(bottom: size.height * 0.02)),
           SizedBox(
             width: size.width * 0.8,
             child: OutlinedButton(
@@ -75,19 +78,24 @@ class SignInPage extends StatelessWidget {
               child: Text(Constants.textSignIn),
               style: ButtonStyle(
                   foregroundColor:
-                      MaterialStateProperty.all<Color>(Constants.kPrimaryColor),
+                  MaterialStateProperty.all<Color>(Constants.kPrimaryColor),
                   backgroundColor:
-                      MaterialStateProperty.all<Color>(Constants.kBlackColor),
+                  MaterialStateProperty.all<Color>(Constants.kBlackColor),
                   side: MaterialStateProperty.all<BorderSide>(BorderSide.none)),
             ),
           ),
+          buildRowDivider(size: size),
+          Padding(padding: EdgeInsets.only(bottom: size.height * 0.02)),
+          GoogleSignIn(),
+
+          Padding(padding: EdgeInsets.only(bottom: size.height * 0.02)),
           RichText(
               textAlign: TextAlign.center,
               text: TextSpan(children: <TextSpan>[
                 TextSpan(
                     text: Constants.textAcc,
                     style: TextStyle(
-                      color: Constants.kDarkGreyColor,
+                      color: Constants.kBlackColor,
                     )),
                 TextSpan(
                     text: Constants.textSignUp,
@@ -153,11 +161,11 @@ class _GoogleSignInState extends State<GoogleSignIn> {
         label: Text(
           Constants.textSignInGoogle,
           style: TextStyle(
-              color: Constants.kBlackColor, fontWeight: FontWeight.bold),
+              color: Colors.white, fontWeight: FontWeight.bold),
         ),
         style: ButtonStyle(
             backgroundColor:
-                MaterialStateProperty.all<Color>(Constants.kGreyColor),
+                MaterialStateProperty.all<Color>(Constants.kBlackColor),
             side: MaterialStateProperty.all<BorderSide>(BorderSide.none)),
       ),
     ) : CircularProgressIndicator();
