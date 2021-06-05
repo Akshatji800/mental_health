@@ -9,14 +9,14 @@ class WelcomePage extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     User? result = FirebaseAuth.instance.currentUser;
     return Scaffold(
-        backgroundColor: Constants.kPrimaryColor,
+        backgroundColor: Colors.cyan[200],
         body: AnnotatedRegion<SystemUiOverlayStyle>(
           value: Constants.statusBarColor,
           child: Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Image.asset("assets/images/main-img.png"),
+                Image.asset("assets/images/mentalHealth.png"),
                 RichText(
                     textAlign: TextAlign.center,
                     text: TextSpan(children: <TextSpan>[
@@ -30,20 +30,15 @@ class WelcomePage extends StatelessWidget {
                       TextSpan(
                           text: Constants.textIntroDesc1,
                           style: TextStyle(
-                              color: Constants.kDarkBlueColor,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 30.0)),
-                      TextSpan(
-                          text: Constants.textIntroDesc2,
-                          style: TextStyle(
                               color: Constants.kBlackColor,
                               fontWeight: FontWeight.bold,
-                              fontSize: 30.0)),
+                              fontSize: 16.0)),
+
                     ])),
-                SizedBox(height: size.height * 0.01),
+                SizedBox(height: size.height * 0.03),
                 Text(
                   Constants.textSmallSignUp,
-                  style: TextStyle(color: Constants.kDarkGreyColor),
+                  style: TextStyle(color: Constants.kBlackColor),
                 ),
                 SizedBox(height: size.height * 0.1),
                 SizedBox(
@@ -52,9 +47,9 @@ class WelcomePage extends StatelessWidget {
                     onPressed: () {
                       result == null
                           ? Navigator.pushNamed(
-                              context, Constants.signInNavigate)
+                          context, Constants.signInNavigate)
                           : Navigator.pushReplacementNamed(
-                              context, Constants.homeNavigate);
+                          context, Constants.homeNavigate);
                     },
                     child: Text(Constants.textStart),
                     style: ButtonStyle(
