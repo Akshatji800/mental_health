@@ -12,8 +12,8 @@ class Constants {
 
   //text
   static const title = "Google Sign In";
-  static const textIntro = "Growing your \n business is ";
-  static const textIntroDesc1 = "easier \n ";
+  static const textIntro = "Mental Health \n";
+  static const textIntroDesc1 = "Self-care is how you take your power back";
   static const textIntroDesc2 = "then you think!";
   static const textSmallSignUp = "Sign up takes only 2 minutes!";
   static const textSignIn = "Sign In";
