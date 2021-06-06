@@ -10,14 +10,14 @@ class SignInPage extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     OutlineInputBorder border = OutlineInputBorder(
-        borderSide: BorderSide(color: Constants.kBorderColor, width: 3.0));
+        borderSide: BorderSide(color: Constants.kBlackColor, width: 1.0));
     return Scaffold(
         resizeToAvoidBottomInset: false,
         backgroundColor: Colors.cyan[200],
         body: Center(
             child:
                 Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-          Image.asset("assets/images/sign-in.png"),
+          Image.asset("assets/images/sign-in.png",width: 300,height: 200),
           RichText(
               textAlign: TextAlign.center,
               text: TextSpan(children: <TextSpan>[

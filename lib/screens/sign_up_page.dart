@@ -1,4 +1,8 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:mental_health/utils/constants.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -11,14 +15,14 @@ class SignUpPage extends StatelessWidget {
         .of(context)
         .size;
     OutlineInputBorder border = OutlineInputBorder(
-        borderSide: BorderSide(color: Constants.kBorderColor, width: 3.0));
+        borderSide: BorderSide(color: Constants.kBlackColor, width: 1.0));
     return Scaffold(
         resizeToAvoidBottomInset: false,
         backgroundColor: Colors.cyan[200],
-        body: Center(
+        body:  Center(
             child:
             Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-              Image.asset("assets/images/sign-up.png"),
+              Image.asset("assets/images/sign-up.png",width: 300,height: 125),
               RichText(
                   textAlign: TextAlign.center,
                   text: TextSpan(children: <TextSpan>[
@@ -102,7 +106,7 @@ class SignUpPage extends StatelessWidget {
               SizedBox(
                 width: size.width * 0.8,
                 child: OutlinedButton(
-                  onPressed: () async {},
+                  onPressed: () async {Navigator.pushNamedAndRemoveUntil(context, Constants.homeNavigate, (route) => false);},
                   child: Text(Constants.SignUp),
                   style: ButtonStyle(
                       foregroundColor:
