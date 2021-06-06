@@ -23,9 +23,13 @@ class Constants {
   static const textAcc = "Don't have an account? ";
   static const textSignUp = "Sign Up here";
   static const textHome = "Home";
+  static const SignUp = "Sign Up ";
+  static const textSignUpGoogle = "Sign Up With Google";
+
 
   //navigate
   static const signInNavigate = '/sign-in';
+  static const signUpNavigate = '/sign-up';
   static const homeNavigate = '/home';
 
   static const statusBarColor = SystemUiOverlayStyle(
