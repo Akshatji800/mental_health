@@ -4,6 +4,8 @@ import 'package:mental_health/screens/welcome_page.dart';
 import 'package:flutter/material.dart';
 import 'package:mental_health/screens/sign_up_page.dart';
 
+
+
 class Navigate {
   static Map<String, Widget Function(BuildContext)> routes =   {
     '/' : (context) => WelcomePage(),

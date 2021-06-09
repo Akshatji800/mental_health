@@ -24,8 +24,7 @@ class Constants {
   static const textSignUp = "Sign Up here";
   static const textHome = "Home";
   static const SignUp = "Sign Up ";
-  static const textSignUpGoogle = "Sign Up With Google";
-
+  static const textSignUpGoogle = "Sign up with Google";
 
   //navigate
   static const signInNavigate = '/sign-in';
