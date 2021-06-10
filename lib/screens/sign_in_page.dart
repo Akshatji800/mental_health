@@ -1,6 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:mental_health/services/firebase_Service.dart';
-import 'package:mental_health/services/firebase_service.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:mental_health/utils/constants.dart';
@@ -10,14 +9,14 @@ class SignInPage extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     OutlineInputBorder border = OutlineInputBorder(
-        borderSide: BorderSide(color: Constants.kBlackColor, width: 1.0));
+        borderSide: BorderSide(color: Constants.kBorderColor, width: 3.0));
     return Scaffold(
         resizeToAvoidBottomInset: false,
         backgroundColor: Colors.cyan[200],
         body: Center(
             child:
                 Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-          Image.asset("assets/images/sign-in.png",width: 300,height: 200),
+          Image.asset("assets/images/sign-in.png"),
           RichText(
               textAlign: TextAlign.center,
               text: TextSpan(children: <TextSpan>[
@@ -89,20 +88,19 @@ class SignInPage extends StatelessWidget {
           GoogleSignIn(),
 
           Padding(padding: EdgeInsets.only(bottom: size.height * 0.02)),
-
-        Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-          Text("Don't have an account?"),
-          SizedBox(width: 10),
-          GestureDetector(
-            onTap: () {Navigator.pushNamedAndRemoveUntil(context, Constants.signUpNavigate, (route) => false);},
-            child: Container(
-              child: Text("Register now",
-                  style: TextStyle(
-                      fontWeight: FontWeight.w700,
-                      color: Colors.deepPurpleAccent)),
-            ),
-          )
-        ]),
+          Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+            Text("Don't have an account?"),
+            SizedBox(width: 10),
+            GestureDetector(
+              onTap: () {Navigator.pushNamedAndRemoveUntil(context, Constants.signUpNavigate, (route) => false);},
+              child: Container(
+                child: Text("Register now",
+                    style: TextStyle(
+                        fontWeight: FontWeight.w700,
+                        color: Colors.deepPurpleAccent)),
+              ),
+            )
+          ]),
         ])));
   }
 
