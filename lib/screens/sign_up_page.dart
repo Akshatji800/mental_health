@@ -1,7 +1,7 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:mental_health/utils/constants.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:mental_health/services/firebase_Service.dart';
@@ -25,9 +25,9 @@ class SignUpPage extends StatelessWidget {
             )
         ),
         child: Column (
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            SizedBox(height: 40,),
+            SizedBox(height: 60,),
             Padding(
               padding: EdgeInsets.all(20),
               child: Row(
@@ -37,25 +37,26 @@ class SignUpPage extends StatelessWidget {
                     mainAxisSize: MainAxisSize.min,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      Text("Mental Health", style: TextStyle(color: Colors.white, fontSize: 25,fontWeight: FontWeight.bold),),
+                      Text("Create Your Account", style: TextStyle(color: Colors.white, fontSize: 28,fontWeight: FontWeight.bold),),
                       SizedBox(height: 3,),
-                      Text("Welcome !!", style: TextStyle(color: Colors.white, fontSize: 25),),
+                      Text(" Please enter your info to create account", style: TextStyle(color: Colors.white, fontSize: 12,fontWeight: FontWeight.bold),),
                       SizedBox(height: 8,),
-                      Text("Register", style: TextStyle(color: Colors.white, fontSize: 25,fontWeight: FontWeight.bold),),
+                      //Text("Register", style: TextStyle(color: Colors.white, fontSize: 25,fontWeight: FontWeight.bold),),
 
                     ],
                   ),
-                  Image.asset("assets/images/sign.png",width: 120,height: 100),
+                  //Image.asset("assets/images/sign.png",width: 120,height: 100),
                 ],
               ),
             ),
-            SizedBox(height: 5),
+            SizedBox(height: 13),
             Expanded(
               child: Container(
                 decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.only(topLeft: Radius.circular(60), topRight: Radius.circular(60)),
-                    boxShadow: [BoxShadow(
+                    boxShadow: [
+                      BoxShadow(
                         color: Colors.black45,
                         blurRadius: 25,
                         offset: Offset(0, 10)
@@ -63,95 +64,154 @@ class SignUpPage extends StatelessWidget {
                 ),
                 child: SingleChildScrollView(
                   child: Padding(
-                    padding: EdgeInsets.all(20),
+                    padding: EdgeInsets.all(8),
                     child: Column(
                       children: <Widget>[
-                        SizedBox(height: 30,),
+                        SizedBox(height: 10,),
                         Container(
+                          child: Padding(
+                            padding: EdgeInsets.all(20),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              Text("  Sign up",style: const TextStyle(color: Colors.black54,fontSize: 25,fontWeight: FontWeight.bold),),
+                              SizedBox(height: 10,),
+                              //Text("    Full name",style: const TextStyle(color: Colors.black54,fontWeight: FontWeight.bold),),
+                              SizedBox(height: 5,),
+                              Container(
                           decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(10),
-                              boxShadow: [BoxShadow(
-                                  color: Colors.black45,
-                                  blurRadius: 25,
-                                  offset: Offset(0, 10)
-                              )]
+                              color: Colors.grey.shade200,
+                              borderRadius: BorderRadius.circular(50),
+                              // boxShadow: [BoxShadow(
+                              //     color: Colors.black12,
+                              //     blurRadius: 25,
+                              //     offset: Offset(0, 2)
+                              // )]
                           ),
                           child: Column(
                             children: <Widget>[
                               Container(
-                                padding: EdgeInsets.all(5),
-                                decoration: BoxDecoration(
-                                    border: Border(bottom: BorderSide(color: Colors.grey.shade200))
-                                ),
+                                padding: EdgeInsets.all(0),
                                 child: TextField(
                                   decoration: InputDecoration(
-                                      hintText: " Enter your full name",
-                                      hintStyle: TextStyle(color: Colors.grey),
+                                    prefixIcon: Icon(Icons.person),
+                                      hintText: "Enter your full name",
+                                      hintStyle: TextStyle(color: Colors.black45),
                                       border: InputBorder.none
-                                  ),
-                                ),
-                              ),
-                              Container(
-                                padding: EdgeInsets.all(5),
-                                decoration: BoxDecoration(
-                                    border: Border(bottom: BorderSide(color: Colors.grey.shade200))
-                                ),
-                                child: TextField(
-                                  decoration: InputDecoration(
-                                      hintText: " Enter your user name",
-                                      hintStyle: TextStyle(color: Colors.grey),
-                                      border: InputBorder.none
-                                  ),
-                                ),
-                              ),
-                              Container(
-                                padding: EdgeInsets.all(5),
-                                decoration: BoxDecoration(
-                                    border: Border(bottom: BorderSide(color: Colors.grey.shade200))
-                                ),
-                                child: TextField(
-                                  decoration: InputDecoration(
-                                      hintText: " Enter your mail id",
-                                      hintStyle: TextStyle(color: Colors.grey),
-                                      border: InputBorder.none
-                                  ),
-                                ),
-                              ),
-                              Container(
-                                padding: EdgeInsets.all(5),
-                                decoration: BoxDecoration(
-                                    border: Border(bottom: BorderSide(color: Colors.grey.shade200))
-                                ),
-                                child: TextField(
-                                  obscureText: !_showPassword,
-                                  decoration: InputDecoration(
-                                    hintText: " Enter your password",
-                                    hintStyle: TextStyle(color: Colors.grey),
-                                    border: InputBorder.none,
                                   ),
                                 ),
                               ),
                             ],
                           ),
                         ),
-                        SizedBox(height: 30,),
+                        SizedBox(height: 5,),
+                              //Text("    Username",style: const TextStyle(color: Colors.black54,fontWeight: FontWeight.bold),),
+                              SizedBox(height: 2,),
+                        Container(
+                          decoration: BoxDecoration(
+                              color: Colors.grey.shade200,
+                              borderRadius: BorderRadius.circular(50),
+                              // boxShadow: [BoxShadow(
+                              //     color: Colors.black12,
+                              //     blurRadius: 25,
+                              //     offset: Offset(0, 2)
+                              // )]
+                          ),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: <Widget>[
+                              Container(
+                                child: TextField(
+                                  decoration: InputDecoration(
+                                      prefixIcon: Icon(Icons.person),
+                                      hintText: "Enter your username",
+                                      hintStyle: TextStyle(color: Colors.black45),
+                                      border: InputBorder.none
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        SizedBox(height: 5,),
+                              //Text("    Mail id",style: const TextStyle(color: Colors.black54,fontWeight: FontWeight.bold),),
+                              SizedBox(height: 2,),
+                        Container(
+                          decoration: BoxDecoration(
+                              color: Colors.grey.shade200,
+                              borderRadius: BorderRadius.circular(50),
+                              // boxShadow: [BoxShadow(
+                              //     color: Colors.black12,
+                              //     blurRadius: 25,
+                              //     offset: Offset(0, 2)
+                              // )]
+                          ),
+                          child: Column(
+                            children: <Widget>[
+                              Container(
+                                padding: EdgeInsets.all(0),
+                                child: TextField(
+                                  decoration: InputDecoration(
+                                    prefixIcon: Icon(Icons.mail),
+                                      hintText: "Enter your mail id",
+                                      hintStyle: TextStyle(color: Colors.black45),
+                                      border: InputBorder.none,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        SizedBox(height: 5,),
+                              //Text("    Password",style: const TextStyle(color: Colors.black54,fontWeight: FontWeight.bold),),
+                              SizedBox(height: 2,),
+                        Container(
+                          decoration: BoxDecoration(
+                              color: Colors.grey.shade200,
+                              borderRadius: BorderRadius.circular(50),
+                              // boxShadow: [BoxShadow(
+                              //     color: Colors.black12,
+                              //     blurRadius: 25,
+                              //     offset: Offset(0, 2)
+                              // )]
+                          ),
+                          child: Column(
+                            children: <Widget>[
+                              Container(
+                                padding: EdgeInsets.all(0),
+                                child: TextField(
+                                  decoration: InputDecoration(
+                                      prefixIcon: Icon(Icons.lock),
+                                      hintText: "Enter your password",
+                                      hintStyle: TextStyle(color: Colors.black45),
+                                      border: InputBorder.none
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+
+                            ],
+                          ),
+                        ),
+                        ),
                         GestureDetector(
                           onTap: (){Navigator.pushNamedAndRemoveUntil(context, Constants.homeNavigate, (route) => false);},
                           child: Container(
                             height: 50,
                             margin: EdgeInsets.symmetric(horizontal: 75),
                             decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(5),
-                                color: Colors.cyan.shade400,
+                                borderRadius: BorderRadius.circular(50),
+                                color: Colors.cyan.shade500,
                                 border: Border.all(
                                   color: Colors.black12
                                 ),
                                 boxShadow: [
                                   BoxShadow(
-                                      color: Colors.black45,
+                                      color: Colors.black26,
                                       spreadRadius: 1,
-                                      blurRadius: 10
+                                      blurRadius: 4
                                   )
                                 ]
                             ),
@@ -161,7 +221,7 @@ class SignUpPage extends StatelessWidget {
                           ),
                         ),
 
-                        SizedBox(height: 16,),
+                        SizedBox(height: 10,),
                         Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                           Text("Already have an account?"),
                           SizedBox(width: 10),
@@ -171,13 +231,13 @@ class SignUpPage extends StatelessWidget {
                               child: Text("Sign in",
                                   style: TextStyle(
                                       fontWeight: FontWeight.w700,
-                                      color: Colors.cyan.shade900)),
+                                      color: Colors.cyan.shade500,)),
                             ),
                           )
                         ]),
-                        SizedBox(height: 16,),
+                        SizedBox(height: 10,),
                         buildRowDivider(size: size),
-                        SizedBox(height: 16,),
+                        SizedBox(height: 10,),
                         GoogleSignIn()
                       ],
                     ),
@@ -224,7 +284,7 @@ class _GoogleSignInState extends State<GoogleSignIn> {
       width: size.width * 0.8,
       height: 50,
       child: OutlinedButton.icon(
-        icon: FaIcon(FontAwesomeIcons.google),
+        icon: Image.asset("assets/images/google-logo.png",width: 30,height: 30),
         onPressed: () async {
           setState(() {
             isLoading = true;
@@ -248,9 +308,10 @@ class _GoogleSignInState extends State<GoogleSignIn> {
               color: Colors.white, fontWeight: FontWeight.bold),
         ),
         style: OutlinedButton.styleFrom(
-          backgroundColor: Colors.cyan.shade400,
-          shadowColor: Colors.black,
+          backgroundColor: Colors.cyan.shade500,
+          shadowColor: Colors.black45,
           elevation: 8,
+          shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(50)))
         ),
       ),
     ) : CircularProgressIndicator();
